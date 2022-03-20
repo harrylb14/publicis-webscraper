@@ -1,7 +1,7 @@
-import pandas as pd
 import os
+
 import openpyxl
-from url_columns import URL_COLUMNS
+import pandas as pd
 
 
 class URLImporter:
