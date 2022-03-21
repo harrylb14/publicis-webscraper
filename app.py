@@ -17,8 +17,11 @@ def run_crawler_and_save_to_s3(filepath: str = "/Users/harry.lingardbright/Downl
 			url_column = df[column]
 			html_column = crawler.scrape_url_column(url_column)
 			df[column] = html_column
+
+	print('Finished Processing')
 	csv = df.to_csv()
 	S3Service().upload_csv_to_s3(csv)
+	print('Exported data to S3')
 
 
 if __name__ == "__main__":

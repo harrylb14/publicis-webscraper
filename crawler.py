@@ -1,5 +1,6 @@
 import os
 
+import pandas as pd
 from bs4 import BeautifulSoup
 from selenium import webdriver
 
@@ -25,13 +26,13 @@ class Crawler:
 			html = BeautifulSoup(content, features="html.parser")
 
 		except:
-			html = "Unable to get data."
+			html = "No data."
 
 		return html
 
-	def scrape_url_column(self, column) -> list:
+	def scrape_url_column(self, column: pd.Series) -> list:
 		"""
-		Returns a list of HTML strings, containing HTML from each URL in a list of URLs.
+		Returns a list of HTML strings, containing HTML from each URL in a series of URLs.
 		"""
 
 		unstructured_text_column = []

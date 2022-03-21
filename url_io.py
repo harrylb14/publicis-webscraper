@@ -30,7 +30,11 @@ class URLImporter:
 		return pd.read_excel(self.cleaned_filepath, self.sheet_name)
 
 	@staticmethod
-	def clean_column_name(column_name):
+	def clean_column_name(column_name: str) -> str:
+		"""
+		Repeated column names get loaded into DataFrames with a number, e.g. Scores.5.
+		This function removes the number to check the actual column name.
+		"""
 		if '.' in column_name:
 			column_name = column_name.split('.')[0]
 		return column_name
